@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.roy.auth.server.dao.UserDao">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.roy.auth.server.model.User">
+        <result column="uid" property="uid"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="email" property="email"/>
+   <collection property="authorities" ofType="com.roy.auth.server.model.Role" column="uid">
+       <id column="id" property="id" javaType="long" jdbcType="BIGINT"/>
+       <result column="name" property="name" jdbcType="VARCHAR" javaType="string"/>
+   </collection>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="user_all_column">
+        u.uid,
+        u.username,
+        u.password,
+        u.email
+    </sql>
+
+    <sql id="role_all_column">
+        r.id,
+        r.name
+    </sql>
+
+    <select id="selectByUsername" resultMap="AllColumnMap">
+        SELECT <include refid="user_all_column"/>,<include refid="role_all_column"/>
+        FROM user u
+        LEFT OUTER JOIN user_role ON user_id = u.uid
+        LEFT OUTER JOIN role r ON r.id = role_id
+        <where>
+                username = #{username}
+        </where>
+    </select>
+
+</mapper>
