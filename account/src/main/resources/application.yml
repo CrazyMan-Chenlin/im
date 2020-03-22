@@ -5,7 +5,7 @@ spring:
   application:
     name: account
   profiles:
-    active: redis
+    active: redis,zookeeper
   datasource:
     url: jdbc:mysql://47.113.83.248:3306/IM?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
     username: root

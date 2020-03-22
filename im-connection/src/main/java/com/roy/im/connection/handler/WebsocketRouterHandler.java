@@ -45,6 +45,7 @@ public class WebsocketRouterHandler extends SimpleChannelInboundHandler<WebSocke
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, WebSocketFrame frame) throws Exception {
+
             if (frame instanceof TextWebSocketFrame) {
                 String msg = ((TextWebSocketFrame) frame).text();
                 JSONObject msgJson = JSONObject.parseObject(msg);

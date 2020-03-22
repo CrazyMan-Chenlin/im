@@ -1,0 +1,7 @@
+zookeeper:
+  cluster:
+    address:  47.113.83.248:2181,47.115.25.186:2181,47.113.81.159:2181
+  timeout:  3000
+  sessionTimeoutMs: 500
+  connectionTimeoutMs: 500
+  dLockRoot : /dLock
