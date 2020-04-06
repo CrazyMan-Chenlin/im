@@ -1,5 +1,6 @@
 package com.roy.im.connection.constant;
 
+import com.alibaba.fastjson.JSONObject;
 import io.netty.util.AttributeKey;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -17,5 +18,5 @@ public class AttributeKeyConstant {
     /**
      * 用来存储推送失败列表
      */
-    public static final AttributeKey<ConcurrentHashMap> NON_ACKED_MAP = AttributeKey.valueOf("non_acked_map");
+    public static final AttributeKey<ConcurrentHashMap<Long, JSONObject>> NON_ACKED_MAP = AttributeKey.valueOf("non_acked_map");
 }

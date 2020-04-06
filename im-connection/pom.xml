@@ -18,8 +18,14 @@
         <netty.version>4.1.39.Final</netty.version>
         <common-sdk.version>1.0</common-sdk.version>
         <reflections.version>0.9.11</reflections.version>
+        <common-sdk.version>1.0</common-sdk.version>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>com.roy</groupId>
+            <artifactId>common-sdk</artifactId>
+            <version>${common-sdk.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.reflections</groupId>
             <artifactId>reflections</artifactId>
@@ -30,6 +36,10 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
@@ -38,6 +48,14 @@
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>${netty.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-stream-kafka</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
         </dependency>
     </dependencies>
 

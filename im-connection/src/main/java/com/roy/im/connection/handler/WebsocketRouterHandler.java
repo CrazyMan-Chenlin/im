@@ -41,8 +41,6 @@ public class WebsocketRouterHandler extends SimpleChannelInboundHandler<WebSocke
     @Autowired
     TypeProcessorFactory typeProcessorFactory;
 
-    private ScheduledExecutorService executorService = new ScheduledThreadPoolExecutor(50, new EnhancedThreadFactory("ackCheckingThreadPool"));
-
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, WebSocketFrame frame) throws Exception {
 
@@ -89,5 +87,4 @@ public class WebsocketRouterHandler extends SimpleChannelInboundHandler<WebSocke
         log.info("[cleanChannel]:remove uid & channel info from gateway, uid is {}, channel is {}", uid, channel);
     }
 
-    //todo 发送消息的推送
 }

@@ -14,6 +14,9 @@ import org.springframework.context.annotation.Bean;
 
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author chenlin
@@ -23,6 +26,7 @@ import java.util.Arrays;
 @EnableFeignClients
 @Slf4j
 public class AccountApplication {
+
 
     public static void main(String[] args) {
         SpringApplication.run(AccountApplication.class, args);

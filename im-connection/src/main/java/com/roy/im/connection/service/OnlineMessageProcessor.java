@@ -6,6 +6,7 @@ import com.roy.im.connection.handler.WebsocketRouterHandler;
 import io.netty.channel.Channel;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
@@ -14,6 +15,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * @author chenlin
  */
 @Slf4j
+@Service
 public class OnlineMessageProcessor implements TypeProcessor {
 
     @Override

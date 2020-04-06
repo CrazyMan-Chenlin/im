@@ -26,6 +26,9 @@ import io.netty.util.concurrent.DefaultThreadFactory;
 import io.netty.util.concurrent.EventExecutorGroup;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -36,7 +39,8 @@ import java.util.concurrent.TimeUnit;
  */
 @Component
 @Slf4j
-public class WebSocketServer {
+@Order(value = 1)
+public class WebSocketServer implements CommandLineRunner {
 
     @Autowired
     private ServerConfig serverConfig;
@@ -52,7 +56,6 @@ public class WebSocketServer {
     @Autowired
     private CloseIdleChannelHandler closeIdleChannelHandler;
 
-    @PostConstruct
     public void start() throws InterruptedException {
         if (serverConfig.port == 0) {
             log.info("WebSocket Server not config.");
@@ -104,6 +107,12 @@ public class WebSocketServer {
                 log.error("WebSocket Server start failed!", e);
             }
 
+    }
+
+    @Override
+    @Async
+    public void run(String... args) throws Exception {
+        start();
     }
 
     class ShutdownThread extends Thread {
@@ -166,4 +175,5 @@ public class WebSocketServer {
 
         return new ServerBootstrap().group(bossGroup, workerGroup).channel(NioServerSocketChannel.class);
     }
+
 }

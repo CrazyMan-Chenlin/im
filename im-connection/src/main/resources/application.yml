@@ -1,3 +1,24 @@
+server:
+  port: 8763
+
+spring:
+  application:
+    name: im-connection
+  kafka:
+    bootstrap-servers: 47.113.83.248:9092,47.115.25.186:9092,47.113.81.159:9092
+    consumer:
+      enable-auto-commit: true
+      auto-commit-interval: 100ms
+      auto-offset-reset: latest #(\u5B9E\u65F6\u751F\u4EA7\uFF0C\u5B9E\u65F6\u6D88\u8D39\uFF0C\u4E0D\u4F1A\u4ECE\u5934\u5F00\u59CB\u6D88\u8D39)
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      group-id: sendMsgConsumer
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://47.113.83.248:8761/eureka/
+
 websocket:
   connector:
     server:

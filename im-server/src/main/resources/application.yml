@@ -1,0 +1,17 @@
+server:
+  port: 8764
+
+spring:
+  application:
+    name: im-server
+  kafka:
+    bootstrap-servers: 47.113.83.248:9092,47.115.25.186:9092,47.113.81.159:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
